@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Auto">
+  <DataContextMoniker Name="/AutoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b7849186-47c4-43e9-8725-ff8cd678bfee" absoluteBounds="3.625, 1.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AutoDataContext/NewAdmin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b380aa8f-e4c4-4365-b3f9-e6c088239c04" absoluteBounds="3.6399999999999997, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c191812d-ce1b-4681-b7ab-40cfaedda19c" absoluteBounds="6.625, 1.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AutoDataContext/InfoBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc480301-753f-4192-bf7a-1c532f56af53" absoluteBounds="6.64, 1.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="238b241a-2077-489c-9c71-6d6043b3f35d" absoluteBounds="1.125, 1.125, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/AutoDataContext/BookImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc8e7622-eb37-4122-aec7-e8b0aaf346cd" absoluteBounds="1.1399999999999997, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

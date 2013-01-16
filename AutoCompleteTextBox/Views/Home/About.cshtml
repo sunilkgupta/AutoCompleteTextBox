@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+
+<html>
+<head>
+<title></title>
+<script type="text/javascript" language="javascript">
+    function Validate() {
+        var res = document.getElementById("ISBNorUPC").value;
+        if (res == "" || res == null) {
+            alert('Text value can not be empty')
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function ValidateISBN() {
+        if ('@ViewBag.Message' == 'ISBN') {
+            alert('This is valid ISBN number');
+        }
+        else if ('@ViewBag.Message' == 'UPC') {
+            alert('This is valid UPC number');
+        }
+        else if ('@ViewBag.Message' == 'LCCN') {
+            alert('This is valid LCCN number');
+        }
+        else if ('@ViewBag.Message' == 'Nothing') {
+            alert("Specified input is not matching with any format (ISBN, UPC and LCCN)");
+        }
+    }    
+</script>
+</head>
+<body onload="return ValidateISBN();">
+@using (Html.BeginForm())
+{
+         <fieldset class="editor-field">
+        <legend>ISBN or UPC or LCCN format:</legend>
+        <table class="specialBorderLessTH">
+            <tr class="specialBorderLessTH">
+                <td class="specialBorderLessTH">
+                    <label>
+                        Please put ISBN or UPC or LCCN Numbers</label>
+                </td>
+                <td class="specialBorderLessTH">
+                    <input type="text" id="ISBNorUPC" name="ISBNorUPC" />
+                </td>
+            </tr>
+            <tr class="specialBorderLessTH">
+                <td class="specialBorderLessTH">
+                    <button type="submit" id="submit" onclick="return Validate()">
+                        Check</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    
+                   
+}
+
+</body>
+</html>

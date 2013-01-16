@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>*@
+  <script type="text/javascript">
+
+
+      $(document).ready(function () {
+          $("#tags").autocomplete({
+              source: "/Home/Autocomplete"
+          });
+
+          $("#date").datepicker();
+
+          $("#dialog").hide();
+                   
+
+            $("#tags").change(function () {
+                $("#tags1 > option").remove();
+                $.get("/Home/ISBNNumber", $(this).val(), function (data) {
+                    $("#tags1").val(data);
+                });
+            });
+      });
+
+      function DialogCall() {
+          $("#dialog").dialog({
+              modal: true,
+              buttons: {
+                  Ok: function () {
+                      $(this).dialog("close");
+                      $("#FieldHide").hide(1000);
+                  }               
+              }
+          });
+      }
+  </script>
+</head>
+<body>
+ @using (Ajax.BeginForm("ISBNNumber", new AjaxOptions
+ {
+     UpdateTargetId = "tags",
+     HttpMethod = "Post",
+     OnSuccess = "UpdateISBN"
+ }))
+ { 
+     <h2>Book and ISBN Search</h2>
+     <fieldset class="editor-field" id="FieldHide">
+         <legend onclick="DialogCall()">Book Details </legend>
+         <table class="specialBorderLessTH">
+             <tr class="specialBorderLessTH">
+                 <td class="specialBorderLessTH">
+                     <div class="editor-field">
+                         <label for="tags" style="padding-right:20px">
+                             Select Book Name here:
+                         </label>
+                         <input id="tags" style="width:400px" name="tags" title="Please select Book Name here"/>
+                     </div>
+                 </td>
+             </tr>
+             <tr class="specialBorderLessTH">
+                 <td class="specialBorderLessTH">
+                     <div class="editor-field" id="ISBNValue">
+                         <label for="tags1" style="padding-right:78px">
+                             Get ISBN here:
+                         </label>
+                         <input id="tags1" style="width:400px" title="Get ISBN here associated with Book name"/>
+                     </div>
+                 </td>
+             </tr>
+             <tr class="specialBorderLessTH">
+                 <td class="specialBorderLessTH">
+                     <div class="editor-field">
+                         <label for="date" style="padding-right:27px">
+                             Add today's date here:
+                         </label>
+                         <input id="date" style="width:100px" title="Please select date here"/>
+                     </div>
+                 </td>
+             </tr>
+         </table>
+     </fieldset>
+          <div id="dialog" title="Information">
+         <p>
+            This is the page where all details related to books and ISBN are available to your reference.
+            <span>After clicking "Ok", Page will go off.</span>
+         </p>
+     </div>
+     
+ } 
+</body>
+</html>

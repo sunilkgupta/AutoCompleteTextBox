@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sunil" Class="AutoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=GENSD-11;Initial Catalog=sunil;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="sunilConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.NewAdmin" Member="NewAdmins">
+    <Type Name="NewAdmin">
+      <Column Name="adminName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="adminPassword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AdminCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdminPhone" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminAddress" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="AdminDesignation" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="AdminCategory" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AdminDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Active" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InfoBook" Member="InfoBooks">
+    <Type Name="InfoBook">
+      <Column Name="BID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Book_ID" Type="System.String" DbType="VarChar(106)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BookName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AuthorName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Publisher" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="PublishYear" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Available" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Requested" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookImages" Member="BookImages">
+    <Type Name="BookImage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BookImage" Member="BookImage1" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description1" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Description2" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="Description3" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="TotalBooks" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
