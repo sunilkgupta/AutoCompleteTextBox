@@ -1,14 +1,13 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model AutoCompleteTextBox.Models.AutoData
+           
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>jQuery UI Autocomplete - Default functionality</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-  @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>*@
+  <script src="http://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript">
 
 
@@ -44,12 +43,13 @@
   </script>
 </head>
 <body>
- @using (Ajax.BeginForm("ISBNNumber", new AjaxOptions
+@* @using (Ajax.BeginForm("ISBNNumber", new AjaxOptions
  {
      UpdateTargetId = "tags",
      HttpMethod = "Post",
      OnSuccess = "UpdateISBN"
- }))
+ }))*@
+ @using(Html.BeginForm())
  { 
      <h2>Book and ISBN Search</h2>
      <fieldset class="editor-field" id="FieldHide">

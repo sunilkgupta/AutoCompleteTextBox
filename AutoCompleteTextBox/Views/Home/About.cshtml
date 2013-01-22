@@ -27,6 +27,9 @@
         else if ('@ViewBag.Message' == 'LCCN') {
             alert('This is valid LCCN number');
         }
+        else if ('@ViewBag.Convert' == 'LCCN1') {
+            alert('This is valid LCCN number' + '@ViewBag.Message');
+        }
         else if ('@ViewBag.Message' == 'Nothing') {
             alert("Specified input is not matching with any format (ISBN, UPC and LCCN)");
         }

@@ -31,7 +31,17 @@ namespace AutoCompleteTextBox.Controllers
             }
             else if (RegExLogic.validateLCCN(ISBNorUPC))
             {
-                ViewBag.Message = SafeValue.LCCN;
+                if (ISBNorUPC.Contains(SafeValue.Hyphen))
+                    ISBNorUPC = ISBNorUPC.Replace(SafeValue.Hyphen, SafeValue.None);
+                if (ISBNorUPC.Length == SafeValue.LoopLength)
+                {
+                    ViewBag.Message = SafeValue.LCCN;
+                }
+                else
+                {
+                    ViewBag.Convert = SafeValue.LCCNConvert;
+                    ViewBag.Message =  SafeValue.AfterConversion + RegExLogic.LCCNValue;
+                }
             }
             else
             {
@@ -46,7 +56,7 @@ namespace AutoCompleteTextBox.Controllers
             var result = from c in db.InfoBooks.Select(p => p.BookName).Where(p => p.ToUpper().Contains(term.ToUpper())) select c.TrimStart().TrimEnd();
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult ISBNNumber(string name)
+        public ActionResult ISBNNumber()
         {
             string term = Session["value"].ToString();
             var db = new AutoDataContext();
@@ -63,8 +73,9 @@ namespace AutoCompleteTextBox.Controllers
         public ActionResult Books()
         {
             var db = new AutoDataContext();
-            var result = db.InfoBooks.Select(p => p.BookName).ToList();
-            return Json(result, JsonRequestBehavior.AllowGet);
+            //var result = db.InfoBooks.Select(p => p.BookName).ToList();
+            var result1 = from c in db.InfoBooks join p in db.BookImages on c.Book_ID equals p.BookID select new { c.AuthorName, c.BookName, c.Category, p.Description1 };
+            return Json(result1, JsonRequestBehavior.AllowGet);
         }
 
     }
